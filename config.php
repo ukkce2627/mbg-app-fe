@@ -19,7 +19,7 @@ return [
     // PHP-cURL me-resolve 'localhost' ke IPv6 (::1) lebih dulu sementara
     // Apache cuma listen di IPv4, sehingga request FE->BE nyangkut sampai
     // timeout walau BE-nya sendiri sehat (bisa diakses normal dari browser).
-    'api_base_url'      => 'http://127.0.0.1/mbg-app/mbg-app-be/api',
+    'api_base_url'      => 'http://IP-mbg-app-be/api',
     'api_key'           => 'mbg-secret-key-2024',  // harus SAMA dengan api_key di backend/config.php
     'session_save_path' => null,                    // isi path folder shared, mis. '/mnt/shared-sessions'
 ];
