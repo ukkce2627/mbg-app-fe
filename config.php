@@ -21,5 +21,5 @@ return [
     // timeout walau BE-nya sendiri sehat (bisa diakses normal dari browser).
     'api_base_url'      => 'http://IP-mbg-ec2-be/api',
     'api_key'           => 'mbg-secret-key-2024',  // harus SAMA dengan api_key di backend/config.php
-    'session_save_path' => null,                    // isi path folder shared, mis. '/mnt/shared-sessions'
+    'session_save_path' => null,                    // isi path folder shared, mis. '/mnt/efs/mbg-session'
 ];
