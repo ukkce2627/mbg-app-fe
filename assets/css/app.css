@@ -292,3 +292,58 @@ td.wrap { white-space: normal; max-width: 280px; }
     .panel { padding: 14px; }
     th, td { padding: 9px 10px; font-size: .82rem; }
 }
+
+/* ============ Status bar (bawah layar) ============ */
+/* Menampilkan identitas instance FE (karena di-autoscale) dan status
+   koneksi FE->BE, FE->EFS, serta ringkasan health BE. Selalu terlihat
+   (fixed) supaya user/ops bisa cek kapan saja tanpa buka halaman lain. */
+body { padding-bottom: 42px; } /* beri ruang supaya konten tidak ketutup statusbar fixed */
+
+.statusbar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 50;
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    font-size: .74rem;
+    color: var(--text-muted);
+}
+.statusbar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 6px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    row-gap: 4px;
+}
+.statusbar-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+.statusbar-label {
+    font-weight: 700;
+    color: var(--text);
+}
+.statusbar-sep { opacity: .5; }
+.statusbar-instance { font-family: "SFMono-Regular", Consolas, monospace; }
+.statusbar-updated { margin-left: auto; opacity: .75; }
+
+.status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex: none;
+}
+.status-dot--ok { background: var(--success); box-shadow: 0 0 0 2px rgba(31,138,76,.18); }
+.status-dot--warn { background: var(--warning); box-shadow: 0 0 0 2px rgba(184,134,11,.18); }
+.status-dot--error { background: var(--danger); box-shadow: 0 0 0 2px rgba(192,57,43,.18); }
+.status-dot--pending { background: var(--text-muted); opacity: .5; }
+
+@media (max-width: 700px) {
+    .statusbar-inner { gap: 10px; font-size: .68rem; }
+    .statusbar-updated { margin-left: 0; width: 100%; }
+}
